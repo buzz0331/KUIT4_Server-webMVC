@@ -9,7 +9,7 @@
 
     <div class="container" id="main">
             <header class="qna-header">
-                <h2 class="qna-title">객체지향을 가장 잘 다룬 책이 뭐가 있나요?</h2>
+                <h2 class="qna-title">${question.title}</h2>
             </header>
             <div class="content-main">
                 <article class="article">
@@ -19,29 +19,28 @@
                         </div>
                         <div class="article-header-text">
                           <!-- 사용자 프로필 추가 할거면 span -> a 태그로 바꾸고 API 연결 -->
-                            <span class="article-author-name">이영선</span>
+                            <span class="article-author-name">${question.writer}</span>
                             <span class="article-header-time">
-                              2024-09-29 22:11
+                              ${question.createdDate}
                             </span>
                         </div>
                     </div>
                     <div class="article-doc">
-                        <p>저는 지금 '객체지향의 사실과 오해' 라는 책을 읽고 있는데 정말 좋아요</p>
-                        <p>이해가 쏙쏙 됩니다!</p>
+                        <p>${question.contents}</p>
                     </div>
                     <div class="article-util">
                         <ul class="article-util-list">
-                            <li>
-                              <!-- 수정, 삭제 API 연결 필요 -->
-                                <a class="link-modify-article" href="/questions/423/form">수정</a>
-                            </li>
-                            <li>
-                              <!-- 수정, 삭제 API 연결 필요 -->
-                                <form class="form-delete" action="/questions/423" method="POST">
-                                    <input type="hidden" name="_method" value="DELETE">
-                                    <button class="link-delete-article" type="submit">삭제</button>
-                                </form>
-                            </li>
+                            <c:if test="${sessionScope.user.userId == question.writer}">
+                                <li>
+                                    <a class="link-modify-article" href="/qna/updateForm?questionId=${question.questionId}">수정</a>
+                                </li>
+                                <li>
+                                    <form class="form-delete" action="/qna/delete" method="POST">
+                                        <input type="hidden" name="_method" value="DELETE">
+                                        <button class="link-delete-article" type="submit">삭제</button>
+                                    </form>
+                                </li>
+                            </c:if>
                             <li>
                                 <a class="link-modify-article" href="/">목록</a>
                             </li>

@@ -1,20 +1,20 @@
-package jwp.controller;
+package jwp.controller.qna;
 
 import core.mvc.Controller;
 import jwp.dao.QuestionDao;
-import jwp.model.Question;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import java.util.List;
 
-public class HomeController implements Controller {
+public class ShowQnaController implements Controller {
 
     private final QuestionDao questionDao = new QuestionDao();
 
     @Override
     public String execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
-        req.setAttribute("questions", questionDao.findAll() );
-        return "/home.jsp";
+        int questionId = Integer.parseInt(req.getParameter("questionId"));
+        req.setAttribute("question", questionDao.findByQuestionId(questionId));
+
+        return "/qna/show.jsp";
     }
 }

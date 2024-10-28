@@ -1,6 +1,7 @@
 package core.mvc;
 
 import jwp.controller.*;
+import jwp.controller.qna.*;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -22,9 +23,11 @@ public class RequestMapping {
         controllers.put("/user/loginForm", new ForwardController("/user/login.jsp"));
         controllers.put("/user/loginFailed", new ForwardController("/user/loginFailed.jsp"));
 
-        controllers.put("/qna/form", new ForwardController("/qna/form.jsp"));
-        controllers.put("/qna/show", new ForwardController("/qna/show.jsp"));
-
+        controllers.put("/qna/form", new QnaFormController());
+        controllers.put("/qna/show", new ShowQnaController());
+        controllers.put("/qna/create", new CreateQnaController());
+        controllers.put("/qna/updateForm", new UpdateQnaFormController());
+        controllers.put("/qna/update", new UpdateQnaController());
     }
 
     public Controller getController(String url) {

@@ -11,44 +11,27 @@
     <h2>Q&A</h2>
     <div class="qna-list">
         <ul class="list">
-            <li>
-                <div class="wrap">
-                    <div class="main">
-                        <strong class="subject">
-                            <a href="qna/show"> 객체지향을 가장 잘 다룬 책이 뭐가 있나요? </a>
-                        </strong>
-                        <div class="auth-info">
-                            <i class="icon-add-comment"></i>
-                            <span class="time">2024-09-29 23:11</span>
-                            <span clas="author">이영선</span>
-                            <!-- <a href="./user/profile.html" class="author">이영선</a> -->
-                        </div>
-                        <div class="reply" title="댓글">
-                            <i class="icon-reply"></i>
-                            <span class="point">12</span>
-                        </div>
-                    </div>
-                </div>
-            </li>
-            <li>
-                <div class="wrap">
-                    <div class="main">
-                        <strong class="subject">
-                            <a href="qna/show"> 객체지향에서 가장 중요하다고 생각하는 것이 무엇인가요? </a>
-                        </strong>
-                        <div class="auth-info">
-                            <i class="icon-add-comment"></i>
-                            <span class="time">2024-09-29 23:55</span>
-                            <span class="author">이윤정</span>
-                            <!-- <a href="./user/profile.html" class="author">이윤정</a> -->
-                        </div>
-                        <div class="reply" title="댓글">
-                            <i class="icon-reply"></i>
-                            <span class="point">8</span>
+            <c:forEach items="${questions}" var="question">
+                <li>
+                    <div class="wrap">
+                        <div class="main">
+                            <strong class="subject">
+                                <a href="/qna/show?questionId=${question.questionId}">${question.title}</a>
+                            </strong>
+                            <div class="auth-info">
+                                <i class="icon-add-comment"></i>
+                                <span class="time">${question.createdDate}</span>
+                                <span clas="author">${question.writer}</span>
+                                <!-- <a href="./user/profile.html" class="author">이영선</a> -->
+                            </div>
+                            <div class="reply" title="댓글">
+                                <i class="icon-reply"></i>
+                                <span class="point">${question.questionId}</span>
+                            </div>
                         </div>
                     </div>
-                </div>
-            </li>
+                </li>
+            </c:forEach>
         </ul>
         <div class="row">
             <div class="col-md-5"></div>

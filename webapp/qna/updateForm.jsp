@@ -11,22 +11,22 @@
 
     <main class="form-signin">
 
-        <form name="sign-up" method="post" action="/qna/create">
+        <form name="sign-up" method="post" action="/qna/update?questionId=${question.questionId}">
             <div class="form-floating">
-                <input type="text" class="form-control" value="${sessionScope.user.userId}" id="writer" name="writer" placeholder="글쓴이" readonly/>
+                <input type="text" class="form-control" value="${question.writer}" id="writer" name="writer" placeholder="글쓴이">
                 <label for="writer">글쓴이</label>
             </div>
             <div class="form-floating">
-                <input type="text" class="form-control" id="title" name="title" placeholder="제목">
+                <input type="text" class="form-control" value="${question.title}" id="title" name="title" placeholder="제목">
                 <label for="title">제목</label>
             </div>
             <div class="form-floating">
-                <input type="text" class="form-control" id="contents" name="contents" placeholder="내용">
+                <input type="text" class="form-control" value="${question.contents}" id="contents" name="contents" placeholder="내용">
                 <label for="contents">내용</label>
             </div>
             <div style="height:10px;">
             </div>
-            <button class="w-100 btn btn-lg btn-primary" type="submit">질문하기</button>
+            <button class="w-100 btn btn-lg btn-primary" type="submit">수정하기</button>
         </form>
     </main>
 </div>
