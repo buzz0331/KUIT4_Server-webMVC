@@ -24,6 +24,9 @@ public class DispatcherServlet extends HttpServlet {
         Controller controller = requestMapping.getController(url);
         try {
             String viewName = controller.execute(req, resp);
+            if (viewName == null) {
+                return;
+            }
             move(viewName, req, resp);
         } catch (Exception e) {
             System.out.println(e.getMessage());

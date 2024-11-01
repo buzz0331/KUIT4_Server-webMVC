@@ -50,6 +50,25 @@ public class JdbcTemplate<T> {
         return objects;
     }
 
+    public<T> List<T> query(String sql, PreparedStatementSetter pstmtSetter, RowMapper<T> rowMapper) throws SQLException {
+        List<T> objects = new ArrayList<>();
+        ResultSet rs = null;
+
+        try (Connection conn = ConnectionManager.getConnection();
+             PreparedStatement pstmt = conn.prepareStatement(sql);
+
+        ){
+            pstmtSetter.setParameters(pstmt);
+            rs = pstmt.executeQuery(); //DB의 정보를 조회해서 가져옴
+
+            while(rs.next()) {
+                T object = rowMapper.mapRow(rs);
+                objects.add(object);
+            }
+        }
+        return objects;
+    }
+
     public T queryforObject(String sql, PreparedStatementSetter pstmtSetter, RowMapper<T> rowMapper) throws SQLException {
         ResultSet rs = null;
         T object = null;

@@ -57,4 +57,8 @@ public class Question {
         this.contents = contents;
         this.createdDate = new Timestamp(System.currentTimeMillis());
     }
+
+    public void increaseCountOfAnswer() {
+        this.countOfAnswer++;
+    }
 }

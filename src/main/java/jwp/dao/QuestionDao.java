@@ -5,8 +5,6 @@ import core.jdbc.KeyHolder;
 import core.jdbc.PreparedStatementSetter;
 import core.jdbc.RowMapper;
 import jwp.model.Question;
-import jwp.model.User;
-import org.springframework.jdbc.support.GeneratedKeyHolder;
 
 import java.sql.SQLException;
 import java.sql.Timestamp;
@@ -42,6 +40,15 @@ public class QuestionDao {
         jdbcTemplate.update(sql, pstmtSetter);
     }
 
+    public void updateCountOfAnswer(Question question) throws SQLException {
+        String sql = "UPDATE QUESTIONS SET countOfAnswer = ? WHERE questionId = ?";
+        PreparedStatementSetter pstmtSetter = pstmt -> {
+            pstmt.setInt(1, question.getCountOfAnswer());
+            pstmt.setInt(2, question.getQuestionId());
+        };
+        jdbcTemplate.update(sql, pstmtSetter);
+    }
+
     public Question findByQuestionId(int questionId) throws SQLException {
         String sql = "SELECT * FROM QUESTIONS WHERE questionId = ?";
         PreparedStatementSetter pstmtSetter = pstmt -> {
@@ -70,6 +77,7 @@ public class QuestionDao {
         );
         return jdbcTemplate.query(sql, rowMapper);
     }
+
 
 
 }
