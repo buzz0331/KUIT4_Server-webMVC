@@ -26,6 +26,7 @@ public class UpdateQuestionController implements Controller {
         User user = UserSessionUtils.getUserFromSession(session);
         String questionId = req.getParameter("questionId");
         Question question = questionDao.findByQuestionId(Integer.parseInt(questionId));
+
         if (!question.isSameUser(user)) {
             throw new IllegalArgumentException("로그인된 유저와 질문 작성자가 다르면 질문을 수정할 수 없습니다.");
         }

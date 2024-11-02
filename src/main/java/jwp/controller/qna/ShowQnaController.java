@@ -12,6 +12,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
+// 특정질문에 대한 답을 보여주기
 public class ShowQnaController implements Controller {
 
     private final QuestionDao questionDao = new QuestionDao();
