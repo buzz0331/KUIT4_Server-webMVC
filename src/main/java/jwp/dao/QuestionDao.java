@@ -41,7 +41,7 @@ public class QuestionDao {
             pstmt.setString(1, question.getTitle());
             pstmt.setString(2, question.getContents());
             pstmt.setObject(3, question.getCreatedDate());
-            pstmt.setLong(4, question.getQuestionId());
+            pstmt.setLong( 4, question.getQuestionId());
         };
         jdbcTemplate.update(sql, pstmtSetter);
     }
