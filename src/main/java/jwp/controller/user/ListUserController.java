@@ -21,8 +21,9 @@ public class ListUserController implements AbstractController {
     public ModelAndView execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         HttpSession session = req.getSession();
         if (UserSessionUtils.isLogined(session)) {
-            req.setAttribute("users", userDao.findAll());
-            return jspView(new JspView("/user/list.jsp"));
+//            req.setAttribute("users", userDao.findAll());
+            return jspView(new JspView("/user/list.jsp"))
+                    .addObject("users", userDao.findAll());
         }
         return jspView(new JspView("redirect:/user/loginForm"));
     }

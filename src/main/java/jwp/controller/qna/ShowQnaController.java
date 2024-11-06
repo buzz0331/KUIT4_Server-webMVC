@@ -24,8 +24,10 @@ public class ShowQnaController implements AbstractController {
         String questionId = req.getParameter("questionId");
         Question question = questionDao.findByQuestionId(Integer.parseInt(questionId));
         List<Answer> answers = answerDao.findAllByQuestionId(question.getQuestionId());
-        req.setAttribute("question", question);
-        req.setAttribute("answers", answers);
-        return jspView(new JspView("/qna/show.jsp"));
+//        req.setAttribute("question", question);
+//        req.setAttribute("answers", answers);
+        return jspView(new JspView("/qna/show.jsp"))
+                .addObject("question", question)
+                .addObject("answers", answers);
     }
 }

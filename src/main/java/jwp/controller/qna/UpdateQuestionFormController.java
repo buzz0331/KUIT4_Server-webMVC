@@ -31,8 +31,9 @@ public class UpdateQuestionFormController implements AbstractController {
         if (!question.isSameUser(user)) {
             throw new IllegalArgumentException();
         }
-        req.setAttribute("question", question);
-        return jspView(new JspView("/qna/updateForm.jsp"));
+//        req.setAttribute("question", question);
+        return jspView(new JspView("/qna/updateForm.jsp"))
+                .addObject("question", question);
     }
 
 }
