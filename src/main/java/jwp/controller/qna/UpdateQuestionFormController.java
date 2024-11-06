@@ -23,7 +23,7 @@ public class UpdateQuestionFormController implements AbstractController {
     public ModelAndView execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         HttpSession session = req.getSession();
         if (!UserSessionUtils.isLogined(session)) {          // 회원만 질문 등록 가능
-            return jspView(new JspView("redirect:/user/loginForm"));
+            return jspView("redirect:/user/loginForm");
         }
         String questionId = req.getParameter("questionId");
         Question question = questionDao.findByQuestionId(Integer.parseInt(questionId));
@@ -32,7 +32,7 @@ public class UpdateQuestionFormController implements AbstractController {
             throw new IllegalArgumentException();
         }
 //        req.setAttribute("question", question);
-        return jspView(new JspView("/qna/updateForm.jsp"))
+        return jspView("/qna/updateForm.jsp")
                 .addObject("question", question);
     }
 

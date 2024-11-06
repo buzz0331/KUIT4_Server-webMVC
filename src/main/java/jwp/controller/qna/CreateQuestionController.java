@@ -24,6 +24,6 @@ public class CreateQuestionController implements AbstractController {
                 0);
         Question savedQuestion = questionDao.insert(question);
         System.out.println("saved question id= " + savedQuestion.getQuestionId());
-        return jspView(new JspView("redirect:/"));
+        return jspView("redirect:/");
     }
 }

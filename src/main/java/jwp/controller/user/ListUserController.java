@@ -22,9 +22,9 @@ public class ListUserController implements AbstractController {
         HttpSession session = req.getSession();
         if (UserSessionUtils.isLogined(session)) {
 //            req.setAttribute("users", userDao.findAll());
-            return jspView(new JspView("/user/list.jsp"))
+            return jspView("/user/list.jsp")
                     .addObject("users", userDao.findAll());
         }
-        return jspView(new JspView("redirect:/user/loginForm"));
+        return jspView("redirect:/user/loginForm");
     }
 }

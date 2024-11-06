@@ -23,6 +23,6 @@ public class CreateUserController implements AbstractController {
                 req.getParameter("email"));
         userDao.insert(user);
         System.out.println("user 회원가입 완료");
-        return jspView(new JspView("redirect:/user/list"));
+        return jspView("redirect:/user/list");
     }
 }

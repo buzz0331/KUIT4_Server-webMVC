@@ -17,8 +17,8 @@ public class CreateQuestionFormController implements AbstractController {
     public ModelAndView execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         HttpSession session = req.getSession();
         if (UserSessionUtils.isLogined(session)) {          // 회원만 질문 등록 가능
-            return jspView(new JspView("/qna/form.jsp"));
+            return jspView("/qna/form.jsp");
         }
-        return jspView(new JspView("redirect:/user/loginForm"));
+        return jspView("redirect:/user/loginForm");
     }
 }

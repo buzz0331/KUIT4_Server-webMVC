@@ -26,9 +26,9 @@ public class UpdateUserFormController implements AbstractController {
 
         if (user != null && value != null) {
             if (user.equals(value)) {            // 수정되는 user와 수정하는 user가 동일한 경우
-                return jspView(new JspView("/user/updateForm.jsp"));
+                return jspView("/user/updateForm.jsp");
             }
         }
-        return jspView(new JspView("redirect:/"));
+        return jspView("redirect:/");
     }
 }

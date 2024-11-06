@@ -16,6 +16,6 @@ public class LogoutController implements AbstractController {
     public ModelAndView execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         HttpSession session = req.getSession();
         session.removeAttribute("user");
-        return jspView(new JspView("redirect:/"));
+        return jspView("redirect:/");
     }
 }

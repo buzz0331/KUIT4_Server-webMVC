@@ -27,9 +27,9 @@ public class LoginController implements AbstractController {
 
         if (user != null && user.isSameUser(loginUser)) {
             session.setAttribute("user", user);
-            return jspView(new JspView("redirect:/"));
+            return jspView("redirect:/");
         }
-        return jspView(new JspView("redirect:/user/loginFailed"));
+        return jspView("redirect:/user/loginFailed");
     }
 
 }

@@ -33,7 +33,7 @@ public class CreateAnswerController implements AbstractController {
         questionDao.updateCountOfAnswer(question);
 
 //        req.setAttribute("answer", savedAnswer);
-        return jsonView(new JsonView()).addObject("answer", savedAnswer);
+        return jsonView().addObject("answer", savedAnswer);
     }
 
 }

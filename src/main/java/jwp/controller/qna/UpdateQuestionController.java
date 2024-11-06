@@ -23,7 +23,7 @@ public class UpdateQuestionController implements AbstractController {
     public ModelAndView execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         HttpSession session = req.getSession();
         if (!UserSessionUtils.isLogined(session)) {
-            return jspView(new JspView("redirect:/users/loginForm"));
+            return jspView("redirect:/users/loginForm");
         }
 
         User user = UserSessionUtils.getUserFromSession(session);
@@ -35,6 +35,6 @@ public class UpdateQuestionController implements AbstractController {
         question.updateTitleAndContents(req.getParameter("title"),
                 req.getParameter("contents"));
         questionDao.update(question);
-        return jspView(new JspView("redirect:/"));
+        return jspView("redirect:/");
     }
 }

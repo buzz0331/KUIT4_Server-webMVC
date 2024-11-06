@@ -20,6 +20,6 @@ public class HomeController implements AbstractController {
     public ModelAndView execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         List<Question> questions = questionDao.findAll();
         req.setAttribute("questions", questions);
-        return jspView(new JspView("/home.jsp"));
+        return jspView("/home.jsp");
     }
 }
