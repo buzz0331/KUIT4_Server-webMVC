@@ -1,7 +1,9 @@
 package jwp.controller.qna;
 
+import core.mvc.AbstractController;
 import core.mvc.Controller;
 import core.mvc.view.JspView;
+import core.mvc.view.ModelAndView;
 import core.mvc.view.View;
 import jwp.dao.QuestionDao;
 import jwp.model.Question;
@@ -14,16 +16,16 @@ import javax.servlet.http.HttpSession;
 
 // 질문을 수정하기 위한 폼을 제시
 // 로그인 여부 확인 / 수정 할 질문 조회 후, 정보를 JSP로 전달
-public class UpdateQuestionFormController implements Controller {
+public class UpdateQuestionFormController extends AbstractController {
 
     private final QuestionDao questionDao = new QuestionDao();
 
     @Override
-    public View execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
+    public ModelAndView execute(HttpServletRequest req, HttpServletResponse resp) throws Exception {
         HttpSession session = req.getSession();
         // 로그인 여부부터 검사
         if (!UserSessionUtils.isLogined(session)) {          // 회원만 질문 등록 가능
-            return new JspView("redirect:/user/loginForm");
+            return jspView("redirect:/user/loginForm");
         }
 
         // 업데이트 할 질문 식별
@@ -39,7 +41,7 @@ public class UpdateQuestionFormController implements Controller {
         }
 
         req.setAttribute("question", question);
-        return new JspView("/qna/updateForm.jsp");
+        return jspView("/qna/updateForm.jsp");
     }
 
 }
