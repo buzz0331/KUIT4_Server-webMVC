@@ -13,6 +13,11 @@ public class User {
         this.email = email;
     }
 
+    public User(String userId, String password) {
+        this.userId = userId;
+        this.password = password;
+    }
+
     public String getUserId() {
         return userId;
     }
@@ -44,11 +49,11 @@ public class User {
     }
 
     public boolean isSameUser(User user) {
-        return isSameUser(user.getUserId());
+        return isSameUser(user.getUserId(), user.getPassword());
     }
 
-    public boolean isSameUser(String userId) {
-        return userId.equals(this.userId);
+    public boolean isSameUser(String userId, String password) {
+        return userId.equals(this.userId) && matchPassword(password);
     }
 
     @Override

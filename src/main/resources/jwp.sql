@@ -37,7 +37,7 @@ CREATE TABLE ANSWERS (
 INSERT INTO QUESTIONS (writer, title, contents, createdDate, countOfAnswer) VALUES
     ('이영선',
      '쿠잇 4기 여러분 환영합니다!',
-     '한 학기 동안 유익한 시간이 되셨으면 좋겠습니다!\n 모두 화이팅!!!',
+     '한 학기 동안 유익한 시간이 되셨으면 좋겠습니다! 모두 화이팅!!!',
      CURRENT_TIMESTAMP(), 0);
 
 INSERT INTO QUESTIONS (writer, title, contents, createdDate, countOfAnswer) VALUES
@@ -49,14 +49,14 @@ INSERT INTO QUESTIONS (writer, title, contents, createdDate, countOfAnswer) VALU
 INSERT INTO QUESTIONS (writer, title, contents, createdDate, countOfAnswer) VALUES
     ('이윤정',
      '저는 객체지향 마스터에요!',
-     '오브젝트란 책이 저의 최애 책이랍니다~^^ \n 여러분의 최애 책은 무엇인가요?',
+     '오브젝트란 책이 저의 최애 책이랍니다~^^ 여러분의 최애 책은 무엇인가요?',
      CURRENT_TIMESTAMP(), 0);
 
 
 INSERT INTO QUESTIONS (writer, title, contents, createdDate, countOfAnswer) VALUES
     ('조하상',
      '저는 진행 마스터입니다!',
-     '엠티 때 제가 진행할 예정이니 많이 기대해주세요! \n 엠티도 많관부~',
+     '엠티 때 제가 진행할 예정이니 많이 기대해주세요! 엠티도 많관부~',
      CURRENT_TIMESTAMP(), 0);
 
 
